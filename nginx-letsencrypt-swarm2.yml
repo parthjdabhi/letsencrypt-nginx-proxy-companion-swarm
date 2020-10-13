@@ -6,6 +6,7 @@ services:
       - com.github.jrcs.letsencrypt_nginx_proxy_companion.nginx_proxy
     restart: unless-stopped
     deploy:
+      # mode: global
       placement:
         constraints:
           - node.role == manager
@@ -37,6 +38,7 @@ services:
       - com.github.jrcs.letsencrypt_nginx_proxy_companion.docker_gen
     restart: unless-stopped
     deploy:
+      # mode: global
       placement:
         constraints:
           - node.role == manager
@@ -68,6 +70,7 @@ services:
       - DEFAULT_EMAIL=youremail@example.com
     restart: unless-stopped
     deploy:
+      # mode: global
       placement:
         constraints:
           - node.role == manager

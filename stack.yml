@@ -1,0 +1,18 @@
+version: "3"
+services:
+  test-app:
+    image: nginxdemos/hello
+    deploy:
+      replicas: 1
+    environment:
+      - VIRTUAL_HOST=${VIRTUAL_HOST:-demo.example.com}
+      # - VIRTUAL_PORT=${VIRTUAL_PORT:-3000}
+      - LETSENCRYPT_HOST=${LETSENCRYPT_HOST:-demo.example.com}
+      # - LETSENCRYPT_EMAIL=${LETSENCRYPT_EMAIL:-parthjdabhi@gmail.com}
+    networks:
+      - webproxy
+
+networks:
+  webproxy:
+    external:
+      name: webproxy
